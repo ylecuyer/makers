@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+.reaction:hover {
+  border-color: #2d9ee0;
+}
+
+.reaction {
+  display: inline-block;
+  text-align: center;
+  min-width: 20px;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
+  padding: 2px 3px;
+}
+
+#picker {
+  padding: 10px;
+}

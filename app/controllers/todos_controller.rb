@@ -1,5 +1,11 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo, only: [:reaction, :show, :edit, :update, :destroy]
+
+  # POST /todos/1/reaction
+  def reaction
+    Reaction.create(emoji: params[:emoji], todo: @todo, user: current_user)
+    redirect_to todos_path
+  end
 
   # GET /todos
   # GET /todos.json

@@ -2,8 +2,22 @@
 
 <h2>My todos</h2>
 
-<ul>
-  <% current_user.todos.each do |todo| %>
-    <li><%= todo.detail %></li>
-  <% end %>
-</ul>
+<% current_user.todos.each do |todo| %>
+  <div class="todo">
+    <span class="detail"><%= todo.detail %></span>
+
+    <div class="reactions">
+      <% todo.reactions.group('reactions.emoji').sum('1').each do |emoji, count| %>
+      <div class="reaction">
+        <span class="emoji" data-todo-id="<%= todo.id %>" data-emoji="<%= emoji %>"><%= emoji %></span> <span class="count"><%= count %></span>
+      </div>
+      <% end %>
+      <div class="reaction add-reaction" data-todo-id="<%= todo.id %>">
+        +
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+<div id="picker"></div>
