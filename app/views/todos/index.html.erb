@@ -1,0 +1,9 @@
+<h1>Todos</h1>
+
+<h2>My todos</h2>
+
+<ul>
+  <% current_user.todos.each do |todo| %>
+    <li><%= todo.detail %></li>
+  <% end %>
+</ul>
