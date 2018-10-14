@@ -16,6 +16,19 @@
         +
       </div>
     </div>
+    <div class="comments">
+      <% todo.comments.each do |comment| %>
+        <div class="comment">
+          <%= comment.content %>
+        </div>
+      <% end %>
+      <div class="comment add-comment">
+        <%= form_for [todo, Comment.new] do |f| %>
+          <%= f.text_field :content %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>
 

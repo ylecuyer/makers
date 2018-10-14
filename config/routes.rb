@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'todos#index'
 
   resources :todos do
+    resources :comments
     member do
       post 'reaction'
     end

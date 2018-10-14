@@ -14,6 +14,10 @@
  *= require_self
  */
 
+.todo {
+  margin: 20px 7px;
+}
+
 .reaction:hover {
   border-color: #2d9ee0;
 }
