@@ -21,7 +21,10 @@
 
       <% todo.comments.each do |comment| %>
         <div class="comment">
-          <span style="color: #<%= comment.user.color %>"><%= comment.user.username %></span> &ndash; <%= comment.content %>
+          <%= link_to user_path(comment.user) do %>
+          <span style="color: #<%= comment.user.color %>"><%= comment.user.username %></span>
+          <% end %>
+          &ndash; <%= comment.content %>
         </div>
       <% end %>
 

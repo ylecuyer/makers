@@ -67,3 +67,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'pundit'
 gem 'acts-as-taggable-on'
+gem 'gravatar_image_tag'
