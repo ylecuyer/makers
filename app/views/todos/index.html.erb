@@ -1,14 +1,10 @@
-<h1>Todos</h1>
-
-<h2>My todos</h2>
-
 <% current_user.todos.each do |todo| %>
   <div class="todo">
-    <div class="tags">
+    <span class="tags mb-0">
       <% todo.tag_list.each do |tag| %>
         <span class="tag"><%= tag %></span>
       <% end %>
-    </div>
+    </span>
     <span class="detail"><%= todo.detail %></span>
 
     <div class="reactions">
@@ -22,11 +18,13 @@
       </div>
     </div>
     <div class="comments">
+
       <% todo.comments.each do |comment| %>
         <div class="comment">
           <span style="color: #<%= comment.user.color %>"><%= comment.user.username %></span> &ndash; <%= comment.content %>
         </div>
       <% end %>
+
       <div class="comment add-comment">
         <%= form_for [todo, Comment.new] do |f| %>
           <%= f.text_field :content %>
@@ -36,6 +34,4 @@
     </div>
   </div>
 <% end %>
-
-
 <div id="picker"></div>
