@@ -24,7 +24,7 @@
     <div class="comments">
       <% todo.comments.each do |comment| %>
         <div class="comment">
-          <%= comment.content %>
+          <span style="color: #<%= comment.user.color %>"><%= comment.user.username %></span> &ndash; <%= comment.content %>
         </div>
       <% end %>
       <div class="comment add-comment">
