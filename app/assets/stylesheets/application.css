@@ -15,7 +15,16 @@
  */
 
 html {
-  background-color: #f5f5f5;
+  background-color: #f5f5f5 !important;
+}
+
+.muted {
+  color: #d8d1d1;
+}
+
+.comment .fixed-width {
+  width: 100px;
+  display: inline-block;
 }
 
 .todo {

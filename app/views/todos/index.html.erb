@@ -18,9 +18,16 @@
       </div>
     </div>
     <div class="comments">
+      <div class="comment add-comment">
+        <%= form_for [todo, Comment.new] do |f| %>
+          <%= f.text_field :content %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
 
-      <% todo.comments.each do |comment| %>
+      <% todo.comments.order(created_at: :desc).limit(5).each do |comment| %>
         <div class="comment">
+          <span class="muted fixed-width"><%= time_ago_in_words(comment.created_at) %></span>
           <%= link_to user_path(comment.user) do %>
           <span style="color: #<%= comment.user.color %>"><%= comment.user.username %></span>
           <% end %>
@@ -28,12 +35,11 @@
         </div>
       <% end %>
 
-      <div class="comment add-comment">
-        <%= form_for [todo, Comment.new] do |f| %>
-          <%= f.text_field :content %>
-          <%= f.button :submit %>
+      <% if todo.comments.count > 5 %>
+        <%= link_to todo_path(todo) do %>
+          View more
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 <% end %>
