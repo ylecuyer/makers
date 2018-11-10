@@ -1,0 +1,5 @@
+<h1>Todos for <%= tag_html(@tag) %></h1>
+
+<% @todos.each do |todo| %>
+  <%= render 'todos/todo', todo: todo %>
+<% end %>

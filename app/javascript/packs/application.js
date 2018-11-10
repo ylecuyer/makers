@@ -36,7 +36,7 @@ class MyPicker extends Picker {
 
 var EnhancedPicker = onClickOutside(MyPicker);
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("turbolinks:load", function(event) {
   var add_reaction_btns = document.querySelectorAll('.add-reaction')
   var picker = document.getElementById('picker')
 

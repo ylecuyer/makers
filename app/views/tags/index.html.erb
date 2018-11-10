@@ -1,0 +1,23 @@
+<div>
+  Most used tags
+
+  <% ActsAsTaggableOn::Tag.most_used(10).each do |tag| %>
+    <%= tag_html(tag.name) %>
+  <% end %>
+</div>
+
+<div>
+  Latest todos
+</div>
+
+<div>
+  Users with more completion within last month
+</div>
+
+<div>
+  Most commented todos
+</div>
+
+<div>
+  Most reacted todos
+</div>
