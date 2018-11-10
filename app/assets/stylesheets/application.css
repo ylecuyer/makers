@@ -57,6 +57,7 @@ html {
 
 #picker {
   padding: 10px;
+  z-index: 10000;
 }
 
 .mb-0 {
