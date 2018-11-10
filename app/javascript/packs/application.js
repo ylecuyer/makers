@@ -14,6 +14,19 @@ import 'emoji-mart/css/emoji-mart.css'
 import { Picker } from 'emoji-mart'
 import request from 'superagent'
 
+
+function emojiSupported() {
+  var pixelRatio = window.devicePixelRatio || 1;
+  var offset = 12 * pixelRatio;
+  var node = document.createElement('canvas');
+  var ctx = node.getContext('2d');
+  ctx.fillStyle = '#f00';
+  ctx.textBaseline = 'top';
+  ctx.font = '32px Arial';
+  ctx.fillText('\ud83d\udc28', 0, 0); // U+1F428 KOALA
+  return ctx.getImageData(offset, offset, 1, 1).data[0] !== 0;
+}
+
 import onClickOutside from 'react-onclickoutside';
 
 function saveReaction(emoji, todo_id) {
@@ -37,6 +50,11 @@ class MyPicker extends Picker {
 var EnhancedPicker = onClickOutside(MyPicker);
 
 document.addEventListener("turbolinks:load", function(event) {
+
+  if (!emojiSupported()) {
+    twemoji.parse(document.body);
+  }
+
   var add_reaction_btns = document.querySelectorAll('.add-reaction')
   var picker = document.getElementById('picker')
 
